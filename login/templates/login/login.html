@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title> App00 - Login </title>
+	</head>
+	{% include "app00/header.html"  %}
+	<body>
+		{% if logged  %}
+			<h1>Loggin succesfully !</h1>
+			<a href="/app00"><button>Index</button></a>
+		{% else %}
+			<form action="{% url "login.views.login_user"  %}" method="post"> {% csrf_token %}
+				{{ form.as_p }}
+				<input type="submit" value="Submit" />
+			</form>
+		{% endif %}
+	</body>
+	{% include "app00/footer.html"  %}
+</html>

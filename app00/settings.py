@@ -41,11 +41,11 @@ ALLOWED_HOSTS = []
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/Paris'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-FR'
 
 SITE_ID = 1
 
@@ -125,6 +125,8 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 	'~/django/apps/django/django_projects/app00/app00/templates'
 	'~/django/apps/django/django_projects/app00/createaccount/templates'
+	'~/django/apps/django/django_projects/app00/login/templates'
+	'~/django/apps/django/django_projects/app00/logout/templates'
 )
 
 INSTALLED_APPS = (
@@ -140,6 +142,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 	'app00',
 	'createaccount',
+	'login',
+	'logout',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
