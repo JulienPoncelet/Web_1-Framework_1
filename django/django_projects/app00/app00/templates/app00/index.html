@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>App00 - Index</title>
+</head>
+{% include "app00/header.html" %}
+<body>
+	<h2>Je suis une page d'accueil</h1>
+	{% if auth %}
+		<h3>Vous etes authentifie en tant que : {{ login }} </h3>
+		<h3>Votre groupe d'utilisateur est : {{ group }} </h3>
+	{% else %}
+		<h2>Vous n'etes pas authentifie</h1>
+	{% endif %}
+	<ul>
+		<a href="/app00/admin"><button>Admin</button></a>
+		<a href="/app00/createaccount"><button>Create Account</button></a>
+		{% if auth  %}
+			<a href="/app00/logout"><button>Logout</button></a>
+			{% if group = "better_user" %}
+				<a href="/app00/better"><button>Better</button></a>
+			{% endif %}
+		{% else %}
+			<a href="/app00/login"><button>Login</button></a>
+		{% endif %}
+	</ul>
+</body>
+{% include "app00/footer.html" %}
+</html>

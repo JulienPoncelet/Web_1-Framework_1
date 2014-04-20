@@ -1,0 +1,27 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>App00 - Create Account</title>
+</head>
+{% include "app00/header.html" %}
+<body>
+{% if envoi %}
+	<h1> Account created ! </h1> <br/>
+	<a href="/app00"><button>Index</button></a>
+{% else %}
+	{% if pwdFail %}
+		<h1> Password aren't the same !</h1>
+	{% elif userExist %}
+		<h1> User already exist !</h1>
+	{% elif emailExist %}
+		<h1> Email already exist !</h1>
+	{% endif %}
+	<form action="{% url "better.views.add_user" %}" method="post">{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Submit" />
+	</form>
+		<a href="/app00/index"><button>Index</button></a>
+{% endif %}
+</body>
+{% include "app00/footer.html" %}
+</html>
